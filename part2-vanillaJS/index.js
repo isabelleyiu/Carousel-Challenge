@@ -5,6 +5,10 @@ function slide(index) {
   showImages(imageIndex += index);
 }
 
+function slideShow() {
+  showImages(imageIndex++);
+}
+
 function showImages(index) {
   const images = document.querySelectorAll('.images');
   const dots = document.querySelectorAll('.dots');
@@ -23,12 +27,15 @@ function showImages(index) {
 
   images[imageIndex].style.display = 'block';
   
+  // reset all active dots
   for(let i = 0; i < dots.length; i++) {
     dots[i].classList.remove('active');
   }
 
   dots[imageIndex].classList.add('active');
 }
+
+setInterval(slideShow, 3000);
 
  
 
